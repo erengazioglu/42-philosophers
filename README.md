@@ -11,12 +11,12 @@ _(TBD)_
 > libft is not allowed in this project.
 
 Program execution:
-`./philo <philosopher_count> <time_to_die> <time_to_eat> <time_to_sleep> [eat_count]`, where:  
+`./philo <philosopher_count> <time_to_die> <time_to_eat> <time_to_sleep> [meals_required]`, where:  
 - `<philosopher_count>`: number of philosophers (= number of forks).
 - `<time_to_die>`: countdown until the philosopher dies because of not having eaten for too long (in milliseconds).
 - `<time_to_eat>`: how long it takes for one philosopher to eat (in milliseconds).
 - `<time_to_sleep>`: how long the philosopher sleeps.
-- `[eat_count]`: optional, number of times each and all philosophers must have eaten before the simulation stops.
+- `[meals_required]`: optional, number of times each and all philosophers must have eaten before the simulation stops.
 
 External functions allowed:  
 - memory (`memset, malloc, free`),
