@@ -21,6 +21,8 @@ $(OBJ): obj/%.o: src/%.c
 	@mkdir -p obj
 	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) -c $< -o $@
 
+tests: 
+
 re: fclean all
 clean:
 	rm -rf obj

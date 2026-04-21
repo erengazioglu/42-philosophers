@@ -39,6 +39,7 @@ _(no content yet.)_
 ## Resources
 
 - **man pages** for all the external functions listed above, in the [requirements](#requirements) section.
+- [The Linux Programming Interface](https://man7.org/tlpi/) by Michael Kerrisk (book).
 - **these youtube videos:**
-    - (video on threads)
-    - (video on mutexes)
+    - [Introduction to Threads (pthreads) | Portfolio Courses](https://www.youtube.com/watch?v=ldJ8WGZVXZk)
+    - [Mutex Introduction (pthreads) | Portfolio Courses](https://www.youtube.com/watch?v=f_uWOWViYc0)
