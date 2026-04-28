@@ -21,10 +21,12 @@ $(OBJ): obj/%.o: src/%.c
 	@mkdir -p obj
 	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) -c $< -o $@
 
-tests: 
+tests:
+	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) tests/pthread.c -o test_pthread
 
 re: fclean all
 clean:
 	rm -rf obj
 fclean: clean
 	rm -f $(NAME)
+.PHONY: all tests re clean fclean
