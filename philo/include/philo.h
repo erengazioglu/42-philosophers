@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 22:38:22 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/28 17:37:06 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/29 13:06:27 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_philo
 	int		nbr;
 	t_cd	cooldowns;
 	int		eat_count;
-};
+}	t_philo;
 
 
 // ft_uatoi.c
