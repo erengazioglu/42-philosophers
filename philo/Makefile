@@ -24,6 +24,7 @@ $(OBJ): obj/%.o: src/%.c
 tests:
 	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) tests/pthread.c -o test_pthread
 	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) tests/mutex.c -o test_mutex
+	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) src/ft_uatoi.c src/util.c tests/time.c -o test_time
 
 re: fclean all
 clean:

@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 22:42:28 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/20 12:08:12 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/29 19:11:11 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@ bool	parse_args(int argc, char **argv, int *arr)
 		return (false);
 	}
 	return (true);
+}
+
+long	current_time_ms(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000L + tv.tv_usec / 1000L);
 }
