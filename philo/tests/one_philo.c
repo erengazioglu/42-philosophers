@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:25:43 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/30 11:50:29 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/30 11:53:34 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_philo	*init(int n, bool *forks, long start_time)
 	return (philo);
 }
 
-t_result	philo_loop(t_philo *philo, bool *forks)
+t_state	philo_loop(t_philo *philo, bool *forks)
 {
 	while (!(grab_forks(philo, forks)))
 	

@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 22:38:22 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/30 11:50:17 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/30 11:56:27 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,14 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef enum e_msg
+typedef enum e_state
 {
-	TAKE_FORKS = 1,
+	EXIT,
+	THINK,
 	EAT,
 	SLEEP,
-	THINK,
 	DIE
-}	t_msg;
-
-typedef enum e_result
-{
-	DEATH,
-	CONTINUE,
-	BREAK,
-	EXIT
-}	t_result;
+}	t_state;
 
 typedef	struct s_cd
 {
@@ -49,6 +41,7 @@ typedef struct s_philo
 	long	start_time;
 	int		nbr;
 	int		eat_count;
+	t_state	state;
 	t_cd	settings;
 	t_cd	timers;
 	bool	is_thinking;
@@ -64,13 +57,13 @@ int		ft_uatoi(const char *str);
 
 bool	parse_args(int argc, char **argv, int *arr);
 long	current_time_ms(void);
-void	print_msg(t_philo *philo, t_msg msg);
+void	print_msg(t_philo *philo, t_state msg);
 
 // philo_actions.c
 
-t_result	ph_eat(t_philo *philo);
-t_result	ph_sleep(t_philo *philo);
-t_result	ph_think(t_philo *philo);
+t_state	ph_eat(t_philo *philo);
+t_state	ph_sleep(t_philo *philo);
+t_state	ph_think(t_philo *philo);
 
 // philo_forks.c
 

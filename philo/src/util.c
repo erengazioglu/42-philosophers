@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 22:42:28 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/30 11:43:45 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/30 12:06:07 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,17 @@ long	current_time_ms(void)
  * @param philo The philosopher.
  * @param msg The message type (TAKE_FORKS, EAT, SLEEP, THINK, DIE).
  */
-void	print_msg(t_philo *philo, t_msg msg)
+void	print_msg(t_philo *philo, t_state msg)
 {
 	long	timestamp;
 
 	timestamp = current_time_ms() - philo->start_time;
-	if (msg == TAKE_FORKS)
+	if (msg == EAT)
 	{
 		printf("%ld %d has taken a fork\n", timestamp, philo->nbr);
 		printf("%ld %d has taken a fork\n", timestamp, philo->nbr);
-	}
-	else if (msg == EAT)
 		printf("%ld %d is eating\n", timestamp, philo->nbr);
+	}
 	else if (msg == SLEEP)
 		printf("%ld %d is sleeping\n", timestamp, philo->nbr);
 	else if (msg == THINK)
