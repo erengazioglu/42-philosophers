@@ -6,13 +6,13 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 19:25:43 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/30 09:28:43 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/30 11:50:29 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_philo	*init(int n, bool *forks)
+t_philo	*init(int n, bool *forks, long start_time)
 {
 	t_philo	*philo;
 
@@ -20,13 +20,20 @@ t_philo	*init(int n, bool *forks)
 	if (!philo)
 		return (NULL);
 	philo->nbr = n;
-	philo->cooldowns.die = 1000;
-	philo->cooldowns.eat = 800;
-	philo->cooldowns.sleep = 500;
+	philo->timers.die = 1000;
+	philo->timers.eat = 800;
+	philo->timers.sleep = 500;
 	philo->eat_count = 0;
+	philo->start_time = start_time;
 	forks[0] = true;
 	forks[1] = true;
 	return (philo);
+}
+
+t_result	philo_loop(t_philo *philo, bool *forks)
+{
+	while (!(grab_forks(philo, forks)))
+	
 }
 
 int main(int argc, char **argv)
@@ -41,21 +48,20 @@ int main(int argc, char **argv)
 		printf("Usage: %s <times to eat>\n", argv[0]);
 		return (1);
 	}
-	philo = init(1, forks);
+	philo = init(1, forks, current_time_ms());
 	if (!philo)
 		return (1);
-	start_time = current_time_ms();
 	eat_target = ft_uatoi(argv[1]);
 	while (philo->eat_count < eat_target)
 	{
-		take_forks(forks, philo->nbr, start_time);
-		print_msg(philo, EAT, start_time);
-		usleep(philo->cooldowns.eat * 1000);
-		philo->eat_count++;
-		release_forks(forks, philo->nbr, start_time);
-		print_msg(philo, SLEEP, start_time);
-		usleep(philo->cooldowns.sleep * 1000, start_time);
-		print_msg(philo, THINK, start_time);
+		ph_grab(philo, forks);
+		ph_eat(philo);
+		ph_release(philo, forks);
+		if (!ph_sleep(philo, start_time))
+			return (0);
+		ph_sleep(philo, start_time);
+		while (!ph_sleep(philo, start_time))
+		ph_think(philo, start_time);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 17:00:10 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/29 19:12:33 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/30 11:50:29 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ t_philo	*init_philo(int n)
 	if (!philo)
 		return (NULL);
 	philo->nbr = n;
-	philo->cooldowns.die = 1000;
-	philo->cooldowns.eat = 800;
-	philo->cooldowns.sleep = 500;
+	philo->timers.die = 1000;
+	philo->timers.eat = 800;
+	philo->timers.sleep = 500;
 	philo->eat_count = 0;
+	philo->end_simulation = false;
 	return (philo);
 }
 

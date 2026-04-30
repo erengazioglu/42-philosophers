@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 22:42:28 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/29 21:14:00 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/30 11:43:45 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ bool	parse_args(int argc, char **argv, int *arr)
 	}
 	return (true);
 }
-
+/**
+ * @brief Returns the current time in milliseconds.
+ * @return The current time in milliseconds.
+ */
 long	current_time_ms(void)
 {
 	struct timeval	tv;
@@ -48,26 +51,25 @@ long	current_time_ms(void)
 
 /**
  * @brief Prints a message to the console with a timestamp and philosopher number.
- * @param nbr The philosopher number.
+ * @param philo The philosopher.
  * @param msg The message type (TAKE_FORKS, EAT, SLEEP, THINK, DIE).
- * @param start_time The start time of the simulation.
  */
-void	print_msg(int nbr, t_msg msg, long start_time)
+void	print_msg(t_philo *philo, t_msg msg)
 {
 	long	timestamp;
 
-	timestamp = current_time_ms() - start_time;
+	timestamp = current_time_ms() - philo->start_time;
 	if (msg == TAKE_FORKS)
 	{
-		printf("%ld %d has taken a fork\n", timestamp, nbr);
-		printf("%ld %d has taken a fork\n", timestamp, nbr);
+		printf("%ld %d has taken a fork\n", timestamp, philo->nbr);
+		printf("%ld %d has taken a fork\n", timestamp, philo->nbr);
 	}
 	else if (msg == EAT)
-		printf("%ld %d is eating\n", timestamp, nbr);
+		printf("%ld %d is eating\n", timestamp, philo->nbr);
 	else if (msg == SLEEP)
-		printf("%ld %d is sleeping\n", timestamp, nbr);
+		printf("%ld %d is sleeping\n", timestamp, philo->nbr);
 	else if (msg == THINK)
-		printf("%ld %d is thinking\n", timestamp, nbr);
+		printf("%ld %d is thinking\n", timestamp, philo->nbr);
 	else if (msg == DIE)
-		printf("%ld %d died\n", timestamp, nbr);
+		printf("%ld %d died\n", timestamp, philo->nbr);
 }

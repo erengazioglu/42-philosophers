@@ -7,6 +7,7 @@ INCLUDE = -I./include
 
 SRC =	src/main.c \
 		src/philo.c \
+		src/philo_actions.c \
 		src/util.c \
 		src/ft_uatoi.c
 
@@ -25,6 +26,7 @@ tests:
 	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) tests/pthread.c -o test_pthread
 	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) tests/mutex.c -o test_mutex
 	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) src/ft_uatoi.c src/util.c tests/time.c -o test_time
+	$(CC) $(CFLAGS) $(DFLAGS) $(INCLUDE) src/util.c src/philo_actions.c tests/one_philo.c -o test_one_philo
 
 re: fclean all
 clean:
