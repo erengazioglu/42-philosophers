@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 22:42:28 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/04/29 19:11:11 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/04/29 21:14:00 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,30 @@ long	current_time_ms(void)
 
 	gettimeofday(&tv, NULL);
 	return (tv.tv_sec * 1000L + tv.tv_usec / 1000L);
+}
+
+/**
+ * @brief Prints a message to the console with a timestamp and philosopher number.
+ * @param nbr The philosopher number.
+ * @param msg The message type (TAKE_FORKS, EAT, SLEEP, THINK, DIE).
+ * @param start_time The start time of the simulation.
+ */
+void	print_msg(int nbr, t_msg msg, long start_time)
+{
+	long	timestamp;
+
+	timestamp = current_time_ms() - start_time;
+	if (msg == TAKE_FORKS)
+	{
+		printf("%ld %d has taken a fork\n", timestamp, nbr);
+		printf("%ld %d has taken a fork\n", timestamp, nbr);
+	}
+	else if (msg == EAT)
+		printf("%ld %d is eating\n", timestamp, nbr);
+	else if (msg == SLEEP)
+		printf("%ld %d is sleeping\n", timestamp, nbr);
+	else if (msg == THINK)
+		printf("%ld %d is thinking\n", timestamp, nbr);
+	else if (msg == DIE)
+		printf("%ld %d died\n", timestamp, nbr);
 }
