@@ -2,3 +2,4 @@
 philo
 test_*
 *.out
+*.o
