@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 22:42:26 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/05/02 18:11:29 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/05/15 00:51:18 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_state	switch_state(t_philo *philo, t_state new_state)
 {
 	if (new_state == EAT)
-		philo->timers.die = philo->settings.die;
+		philo->timers.die = philo->config.die;
 	philo->state = new_state;
 	print_msg(philo, new_state);
 	return (new_state);
@@ -39,7 +39,7 @@ t_philo *new_philo(int n, t_cd settings, long start_time, bool *end_flag)
 	philo->end_simulation = end_flag;
 	philo->nbr = n;
 	philo->state = INIT;
-	philo->settings = settings;
+	philo->config = settings;
 	philo->timers = settings;
 	philo->eat_count = 0;
 	philo->start_time = start_time;

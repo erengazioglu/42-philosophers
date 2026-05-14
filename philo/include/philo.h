@@ -6,7 +6,7 @@
 /*   By: egaziogl <egaziogl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 22:38:22 by egaziogl          #+#    #+#             */
-/*   Updated: 2026/05/02 18:27:57 by egaziogl         ###   ########.fr       */
+/*   Updated: 2026/05/15 01:08:54 by egaziogl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,34 @@ typedef	struct s_cd
 	int	sleep;
 }	t_cd;
 
+
 typedef struct s_config
 {
 	t_cd	timers;
 	bool	*forks;
 	bool	*end_flag;
-	int		eat_target;
+	int		target;
 	long	start_time;
 }	t_conf;
 
+/**
+ * @brief Philosopher struct, containing all information about 
+ * a single philosopher.
+ * @param n		Unique philosopher number (1-indexed).
+ * @param ate	Number of times the philosopher has eaten.
+ * @param state	Current state of the philosopher (THINK, EAT, SLEEP, DIE).
+ * @param timers	Struct containing the philosopher's current die, eat, and sleep timers.
+ * @param config	Pointer to shared configuration struct.
+ * @param sim_end	Pointer to shared end simulation flag.
+ */
 typedef struct s_philo
 {
-	int		nbr;
-	int		eat_count;
+	int		n;
+	int		ate;
 	t_state	state;
-	t_conf	config;
 	t_cd	timers;
-	bool	*end_simulation;
+	t_conf	*config;
+	bool	*sim_fin;
 }	t_philo;
 
 
